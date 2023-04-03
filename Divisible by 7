@@ -1,0 +1,47 @@
+//User function template for C++
+
+class Solution{
+  public:
+    int isdivisible7(string num){
+        //complete the function here
+        int n=num.length(),gSum=0;
+        
+        //calculating whether the size is zero or not.
+        if(n==0)
+        return 1;
+        
+        //placing the zero in the string 
+        if(n%3==1)
+        {
+            num="00"+num;
+            n=n+2;
+        }
+        
+        if(n%3==2)
+        {
+            num="0"+ num;
+            n++;
+        }
+        
+        //now converting it into group of three.
+        int i,GSum=0,p=1;
+        for(i=n-1;i>=0;i--)
+        {
+            //main part of the question and the logic behind all these question.
+            //this is how the inbuilt function known as the atoi is built.
+            //basically it will convert string into numbers . This is the logic main behind this question.
+            int group=0;
+            group+=num[i--] -'0';
+            group+=(num[i--] -'0')*10;
+            group+=(num[i] -'0')*100;
+            
+            GSum=GSum+group*p;
+            
+            
+            // this is for alternate addition and substraction for the group ,resulting in the GSum.
+            p=p*(-1);
+        }
+        
+        return (GSum %7==0);
+    }
+};
