@@ -1,0 +1,40 @@
+//method 1:
+using sorting.
+We have given two strings a,b in accordance to the GFG  questions.
+sort(a.begin(),a.end());
+sort(b.begin(),b.end());
+
+return (a==b);
+
+
+//method 2:
+using the unordered mapping (hash map table).
+unordered_map <char ,int> cnt1;
+unordered_map <char, int> cnt2;
+
+for(auto ch: a) cnt1[ch]++;
+for(auto ch: b) cnt2[ch]++;
+
+return (cnt1==cnt2;
+
+
+//optimising the above method .
+vector<int> vec(26,0);
+for(auto ch:a) vec[ch-'a]++;
+for(auto ch:b) 
+{
+  vec[ch-'a]--;
+  if(vec[ch-'a']<0)
+  return false;
+}
+
+
+for(auto x : vec)
+{
+  if(x!=0)
+  return false;
+  else 
+  return true;
+}  
+  
+
