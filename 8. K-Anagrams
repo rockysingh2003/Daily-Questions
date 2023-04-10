@@ -1,0 +1,40 @@
+
+
+class Solution {
+  public:
+    bool areKAnagrams(string str1, string str2, int k) 
+  {
+        
+      //first condition is checking below:Both have same number of characters.  
+      if(str1.length()!=str2.length())
+      return false ;
+       
+       
+      //firstly I will create the vector to store the count of the each characters present in both the 
+      //strings that is being passed .
+      vector<int> cnt1(26,0);  //<---since we have only 26 alphabets and we counting number of times 
+                               //<---each character is showing by initilising whole array by one.
+      
+      vector<int> cnt2(26,0);
+      
+      
+    //now checking which characters are present in the string 1 and 2.
+    for(auto ch : str1) cnt1[ch-'a']++;
+    for(auto ch : str2) cnt2[ch-'a']++;
+    
+    
+    //now the main logic started from here.
+    int countDiff=0;//<---this is checking how many characters are different in the both the strings.
+    
+    for(int i=0;i<26;i++)
+    {
+        countDiff=countDiff+abs(cnt1[i]-cnt2[i]);  //<---this is checking by saying that if both are 
+                                                   //<---both are equal then they countDiff=0 otherwise
+                                                   //<---it(countDiff)  will increase its value from 0. 
+    }
+    
+    
+    return (countDiff<=2*k);      //<---here 2* k is coming becoz at a time ,one element from the string 
+                                  //<---one is removing and then second element is inserting .
+  }
+};
