@@ -1,0 +1,53 @@
+class Solution{
+  public:
+    int findIndex(string str) 
+  {
+        
+        int opening = 0;
+
+        int closing = 0;
+
+        for(int i= 0;i<str.size();i++){
+
+            char ch = str[i];
+
+            
+
+            if(ch==')'){
+
+                closing++;
+
+            }
+
+        }
+
+        for(int i = 0;i<str.size();i++){
+
+            char ch = str[i];
+
+            if(opening==closing){
+
+                return i;
+
+            }
+
+            if(ch=='('){
+
+                opening++;
+
+            }
+
+            else if(ch==')'){
+
+                closing--;
+
+         
+
+            }
+
+        }
+
+        return str.size();
+    
+  }
+};
