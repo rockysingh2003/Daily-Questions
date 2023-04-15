@@ -1,0 +1,38 @@
+//User function template for C++
+
+class Solution{
+  public:
+    
+    int atoi(string str) 
+    {
+       int ans=0; //<--this is the variable in which we will be storing the number.
+       int i=0;
+       int flag=0;//<---this is for checking of the negative sign .
+       
+       //firstly we are checking for the negative sign as at last if negative sign is present
+       //then obviously we have to return negative number.
+       if(str[0]=='-')
+       {
+           i=1;
+           flag=1;//<---it is indicating that yes ,we have found the negative sign.
+       }
+        
+        
+      //now main logic starts  from here
+      for(;i<str.size();i++)
+      {
+          if(str[i]>=48 and str[i]<=57)
+          ans=ans*10+(str[i]-48);
+          else 
+          return -1;
+         
+      }
+      
+      
+      //Now below part is saying that if flag is positive than it means we hve negative string.
+      if(flag)
+      return -1*ans;
+      
+      return ans;
+    }
+};
