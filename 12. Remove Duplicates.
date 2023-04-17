@@ -1,0 +1,16 @@
+ string ans="";
+	    
+	    unordered_map<char,int> m; //<--it is the creation of the hash map.Remember it!.
+	    for(int i=0;i<S.length();i++)
+	    {
+	        m[S[i]]++;  //<---this is that we are pushing the key-value pair.
+	        
+	        if(m[S[i]]==1)  //<---if the count of the key, value is 1
+	        ans=ans+S[i];   //<---then we are adding it to the empty new string we have created above.
+	    }
+	    
+	    return ans;
+      
+      
+      
+      //abvoe code is using hash map .We can directly use set to solve this  questions
