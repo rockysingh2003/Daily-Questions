@@ -1,0 +1,27 @@
+
+
+//function Template for C++
+
+//Function to reverse the queue.
+queue<int> rev(queue<int> q)
+{
+    //we are doing it using stack.
+    stack<int> s;
+    
+    //first we are pushing the element of the queue into the stack.
+    while(!q.empty())
+    {
+        s.push(q.front());
+        q.pop();
+    }
+    
+    //now we are pushing the element of the stack into the queue.
+    //This will reverse our queue.
+    while(!s.empty())
+    {
+        q.push(s.top());
+        s.pop();
+    }
+    
+    return q;
+}
